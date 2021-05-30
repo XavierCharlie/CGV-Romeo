@@ -50,16 +50,22 @@ function loadGLTF(){
   let treeLoader = new  THREE.GLTFLoader();
 
   treeLoader.load('./Models/birch_tree.gltf', (gltf) => {
+  
 
   tree = gltf.scene;
-  tree.position.set(0, 0, 0);
+  tree.position.set(0, 95, 0);
   tree.scale.set(200,200,200)
   scene.add(tree);
-  // tree.position.x = 0;
-  // tree.position.y = 0;
-  // tree.position.z = 0;
-
   });
+
+  // tried to do the landscape to not be flat 
+  let landscapeLoader = new  THREE.GLTFLoader();
+  landscapeLoader.load('./Models/landscape.gltf', (gltf) => {
+    landscape = gltf.scene;
+    landscape.position.set(0, -700, 0);
+    landscape.scale.set(100,100,100)
+    scene.add(landscape);
+    });
 }
 function init(){
 
