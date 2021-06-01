@@ -35,7 +35,7 @@ camera.position.set(-900,-200,-900);
 //   100 //far
 // );
 
-camera.position.set(0, 10, 10);
+camera.position.set(2000, 500, 1000);
 camera.lookAt(0, 0, 0);
 
 //Renderer
@@ -50,7 +50,6 @@ function loadGLTF(){
   let treeLoader = new  THREE.GLTFLoader();
 
   treeLoader.load('./Models/birch_tree.gltf', (gltf) => {
-  
 
   tree = gltf.scene;
   tree.position.set(0, 95, 0);
@@ -58,12 +57,22 @@ function loadGLTF(){
   scene.add(tree);
   });
 
+  let swatLoader = new  THREE.GLTFLoader();
+
+  swatLoader.load('./Models/swat.gltf', (gltf) => {
+
+    swat = gltf.scene;
+    swat.position.set(1110, 100, 0);
+    swat.scale.set(500, 500, 500)
+    scene.add(swat);
+  });
+
   // tried to do the landscape to not be flat 
   let landscapeLoader = new  THREE.GLTFLoader();
-  landscapeLoader.load('./Models/landscape.gltf', (gltf) => {
+  landscapeLoader.load('./Models/landscapeOG.gltf', (gltf) => {
     landscape = gltf.scene;
-    landscape.position.set(0, -700, 0);
-    landscape.scale.set(100,100,100)
+    landscape.position.set(-500, -1900, 0);
+    landscape.scale.set(1000,1000,1000)
     scene.add(landscape);
     });
 }
